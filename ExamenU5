@@ -1,0 +1,68 @@
+package examenu5;
+//LOS NUMEROS ESTAN SEPARADOS POR COMAS ,
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.List;
+
+public class ExamenU5 {
+
+    public static void main(String[] args) {
+        File archivo = null;
+        FileReader fr = null;
+        BufferedReader br = null;
+        String[] palabraArch = null;
+
+        try {
+            archivo = new File("C:\\Users\\ALEXIS\\Documents\\7 Semestre\\Estructura Pedro\\ExamenU5.txt");
+            fr = new FileReader(archivo);
+            br = new BufferedReader(fr);
+            
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                palabraArch = linea.split("");
+                //System.out.println(palabraArch);
+            }
+            
+            
+            String[] Fin = new String[palabraArch.length];
+            for (int i = 0; i < palabraArch.length; i++) {
+                for (int j = 0; j < palabraArch.length; j++) {
+                    if (palabraArch[i].equals(palabraArch[j])) {
+                        Fin[i] = palabraArch[j];
+                    } else {
+                    }
+                }
+            }
+            for (int r = 0; r < Fin.length; r++) {
+                System.out.print(Fin[r] + "");
+            }
+            //BURBUJA
+            int arreglo[] = null;
+            System.out.println("Arreglo desordenado");
+            for (int i = 0; i < arreglo.length; i++) {
+                System.out.print(arreglo[i] + ",");
+            }
+            for (int i = 0; i < arreglo.length - 1; i++) {
+                for (int j = 0; j < arreglo.length - 1; j++) {
+                    if (arreglo[j] > arreglo[j + 1]) {
+                        int auxiliar = arreglo[j + 1];
+                        arreglo[j + 1] = arreglo[j];
+                        arreglo[j] = auxiliar;
+                    }
+                }
+            }
+            System.out.println("");
+            System.out.println("Arreglo Ordenado");
+            for (int i = 0; i < arreglo.length; i++) {
+                System.out.print(arreglo[i] + ",");
+            }
+            fr.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        
+
+    }
+}
